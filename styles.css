@@ -247,7 +247,7 @@ button[disabled] {
 /* INPUT ROW */
 
 .guess-row {
-  position: fixed;
+  position: sticky;
   bottom: 18px;
   left: 0;
   right: 0;
