@@ -12,7 +12,24 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="game">
+    <div id="menuView" class="view menu">
+      <div class="menu-card">
+        <p class="menu-label">Choose your challenge</p>
+        <h1>Mini Arcade</h1>
+        <p class="menu-subtitle">Pick a game mode to start playing</p>
+        <div class="menu-options">
+          <button class="menu-option" data-play-game="guess">
+            Play Guess Word
+          </button>
+          <button class="menu-option outline" data-play-game="2048">
+            Play 2048
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="guessView" class="game view hidden">
+      <button class="back-btn" data-back-to-menu>&larr; Menu</button>
       <!-- HEADER -->
       <div class="title-grid">
         <div class="title-row">
@@ -80,6 +97,91 @@
       </div>
 
       <div id="message" class="message"></div>
+    </div>
+
+    <div id="game2048View" class="game view game-2048 hidden">
+      <button class="back-btn" data-back-to-menu>&larr; Menu</button>
+      <div class="arcade-2048">
+        <div class="arcade-2048__header">
+          <div>
+            <p class="arcade-2048__eyebrow">Classic puzzle</p>
+            <h1>2048</h1>
+            <p class="arcade-2048__subtitle">
+              Merge tiles to reach 2048. Use arrow keys or swipe.
+            </p>
+          </div>
+          <div class="arcade-2048__scores">
+            <div class="score-card">
+              <span>Score</span>
+              <strong id="game2048Score">0</strong>
+            </div>
+            <div class="score-card">
+              <span>Best</span>
+              <strong id="game2048Best">0</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="arcade-2048__controls">
+          <label>
+            Board size
+            <select id="game2048Size">
+              <option value="4">4 × 4</option>
+              <option value="5">5 × 5</option>
+              <option value="6">6 × 6</option>
+            </select>
+          </label>
+
+          <label>
+            Theme
+            <select id="game2048Theme">
+              <option value="neon">Neon</option>
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+            </select>
+          </label>
+
+          <div class="arcade-2048__buttons">
+            <button id="game2048New">New Game</button>
+            <button id="game2048Undo" disabled>Undo</button>
+          </div>
+        </div>
+
+        <div class="arcade-2048__board-wrapper">
+          <div
+            id="board2048"
+            class="board-2048"
+            role="grid"
+            aria-label="2048 board"
+          ></div>
+          <div id="game2048Overlay" class="overlay-2048 hidden">
+            <div class="overlay-2048__card">
+              <h2 id="game2048Status">You win!</h2>
+              <p id="game2048StatusDetail"></p>
+              <div class="overlay-2048__actions">
+                <button id="game2048KeepPlaying">Keep going</button>
+                <button id="game2048Restart">Restart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="game2048Message" class="message message-2048">
+          Start a new game or continue where you left off.
+        </div>
+
+        <div class="arcade-2048__help">
+          <p>
+            Swipe or use arrow keys (WASD also works). Tiles spawn as 2s and
+            4s (10%). Merge identical numbers once per move. Earn points equal
+            to the value you create.
+          </p>
+          <p>
+            Tips: keep the highest value in a corner, use Undo if you make a
+            mistake, and switch themes to suit your eyes.
+          </p>
+        </div>
+      </div>
     </div>
 
     <script src="app.js"></script>
