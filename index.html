@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Guess Word</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="game">
+      <!-- HEADER -->
+      <div class="title-grid">
+        <div class="title-row">
+          <div class="title-tile title-dark">G</div>
+          <div class="title-tile title-dark">U</div>
+          <div class="title-tile title-green">E</div>
+          <div class="title-tile title-green">S</div>
+          <div class="title-tile title-orange">S</div>
+        </div>
+        <div class="title-row" style="margin-top: 24px">
+          <div class="title-tile title-orange">W</div>
+          <div class="title-tile title-orange">O</div>
+          <div class="title-tile title-dark">R</div>
+          <div class="title-tile title-orange">D</div>
+        </div>
+      </div>
+
+      <h2>Guess an English word of 4, 5 or 6 letters in 6 attempts.</h2>
+
+      <!-- CONTROL PANEL -->
+      <div class="panel">
+        <div class="panel-row">
+          <label>
+            Word length:
+            <select id="wordLength">
+              <option value="4">4</option>
+              <option value="5" selected>5</option>
+              <option value="6">6</option>
+            </select>
+          </label>
+
+          <label>
+            Secret word:
+            <input
+              id="secretInput"
+              type="password"
+              placeholder="english word"
+              autocomplete="off"
+              spellcheck="false"
+            />
+          </label>
+
+          <button id="startBtn">Play</button>
+        </div>
+        <small style="opacity: 0.65">
+          First player types the secret word (hidden), the second player tries
+          to guess it.
+        </small>
+      </div>
+
+      <!-- BOARD -->
+      <div id="board" class="board"></div>
+
+      <!-- GUESS INPUT -->
+      <div class="guess-row">
+        <input
+          id="guessInput"
+          type="text"
+          placeholder="Your guess"
+          autocomplete="off"
+          spellcheck="false"
+          disabled
+        />
+        <button id="guessBtn" disabled>Guess</button>
+      </div>
+
+      <div id="message" class="message"></div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
