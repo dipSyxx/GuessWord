@@ -65,6 +65,8 @@
         undoStack: [],
         lastSpawnCells: [],
       };
+      let pending2048State = null;
+      let game2048Initialized = false;
 
       const views = {
         menu: menuView,
@@ -92,6 +94,8 @@
         activeView = name;
         if (name === "guess") {
           guessInput.focus();
+        } else if (name === "game2048") {
+          ensure2048Initialized();
         }
       }
 
@@ -723,17 +727,8 @@
           }
         })();
 
-        if (saved && saved.board) {
-          if (window.confirm("Continue your previous 2048 game?")) {
-            restoreGame2048State(saved);
-            set2048Message("Continuing your saved puzzle. Good luck!");
-            update2048UI();
-            saveGame2048State();
-            return;
-          }
-        }
-
-        startNewGame2048(game2048State.size);
+        pending2048State =
+          saved && saved.board ? saved : null;
       }
 
       function handlePointerDown2048(event) {
@@ -771,6 +766,26 @@
         if (!direction) return;
         event.preventDefault();
         handle2048Move(direction);
+      }
+
+      function ensure2048Initialized() {
+        if (game2048Initialized) return;
+        game2048Initialized = true;
+        if (pending2048State && pending2048State.board) {
+          const shouldContinue = window.confirm(
+            "Continue your previous 2048 game?"
+          );
+          if (shouldContinue) {
+            restoreGame2048State(pending2048State);
+            pending2048State = null;
+            set2048Message("Continuing your saved puzzle. Good luck!");
+            update2048UI();
+            saveGame2048State();
+            return;
+          }
+          pending2048State = null;
+        }
+        startNewGame2048(game2048State.size);
       }
 
       // Events
