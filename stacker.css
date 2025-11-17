@@ -1,0 +1,149 @@
+.stacker {
+  max-width: 880px;
+  padding: 24px 0 110px;
+}
+
+.stacker-shell {
+  background: linear-gradient(180deg, rgba(15, 20, 42, 0.95), rgba(7, 9, 20, 0.95));
+  border-radius: 28px;
+  padding: 26px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f8fbff;
+}
+
+.stacker-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.stacker-eyebrow {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(248, 251, 255, 0.7);
+}
+
+.stacker-header h1 {
+  margin: 0;
+  font-size: 38px;
+  letter-spacing: 0.05em;
+}
+
+.stacker-subtitle {
+  margin: 6px 0 0;
+  color: rgba(248, 251, 255, 0.7);
+  max-width: 480px;
+}
+
+.stacker-scoreboard {
+  display: flex;
+  gap: 14px;
+  font-size: 15px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(248, 251, 255, 0.8);
+}
+
+.stacker-controls {
+  margin: 20px 0 16px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.stacker-controls label {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(248, 251, 255, 0.7);
+  gap: 6px;
+}
+
+#stackerDifficulty {
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 14px;
+  background: rgba(5, 7, 18, 0.65);
+  color: #f8fbff;
+  font-size: 15px;
+  outline: none;
+}
+
+.stacker-stage {
+  margin: 10px auto 0;
+  max-width: 580px;
+  border-radius: 28px;
+  padding: 18px;
+  background: linear-gradient(180deg, #070912, #111633 60%, #05050b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  text-align: center;
+}
+
+#stackerCanvas {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  background: radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 60%);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stacker-hint {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: rgba(248, 251, 255, 0.65);
+}
+
+.stacker-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 7, 15, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+
+.stacker-overlay-card {
+  background: #0f1425;
+  border-radius: 24px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f8fbff;
+  width: min(400px, 90vw);
+  text-align: center;
+}
+
+.stacker-overlay-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stacker-overlay.hidden {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .stacker-shell {
+    padding: 18px;
+  }
+  .stacker-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .stacker-scoreboard {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

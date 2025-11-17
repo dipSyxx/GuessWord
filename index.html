@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles-base.css" />
     <link rel="stylesheet" href="guess-game.css" />
     <link rel="stylesheet" href="game2048.css" />
+    <link rel="stylesheet" href="stacker.css" />
   </head>
   <body>
     <div id="menuView" class="view menu">
@@ -26,6 +27,61 @@
           <button class="menu-option outline" data-play-game="2048">
             Play 2048
           </button>
+          <button class="menu-option outline" data-play-game="stacker">
+            Play Stack Tower
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="stackerView" class="game view stacker hidden">
+      <button class="back-btn" data-back-to-menu>&larr; Menu</button>
+      <div class="stacker-shell">
+        <div class="stacker-header">
+          <div>
+            <p class="stacker-eyebrow">Arcade challenge</p>
+            <h1>Stack Tower</h1>
+            <p class="stacker-subtitle">
+              Stop the moving platform at the perfect moment to keep the tower
+              growing. Miss the overlap and it's game over.
+            </p>
+          </div>
+          <div class="stacker-scoreboard">
+            <div>Score: <strong id="stackerScore">0</strong></div>
+            <div>Best: <strong id="stackerBest">0</strong></div>
+          </div>
+        </div>
+
+        <div class="stacker-controls">
+          <label>
+            Difficulty
+            <select id="stackerDifficulty">
+              <option value="easy">Easy</option>
+              <option value="normal" selected>Normal</option>
+              <option value="hard">Hard</option>
+            </select>
+          </label>
+          <button id="stackerNewGame" type="button">New Game</button>
+        </div>
+
+        <div class="stacker-stage" id="stackerStage">
+          <canvas id="stackerCanvas" width="520" height="720"></canvas>
+          <p class="stacker-hint">
+            Tap, click, Space or Enter to place the moving block.
+          </p>
+        </div>
+      </div>
+
+      <div id="stackerOverlay" class="stacker-overlay hidden">
+        <div class="stacker-overlay-card">
+          <h2>Game Over</h2>
+          <p>Your score: <strong id="stackerFinalScore">0</strong></p>
+          <p>Best score: <strong id="stackerOverlayBest">0</strong></p>
+          <div class="stacker-overlay-actions">
+            <button id="stackerPlayAgain">Play again</button>
+            <button id="stackerCloseOverlay">Close</button>
+          </div>
         </div>
       </div>
     </div>
@@ -188,6 +244,7 @@
 
     <script src="guess-game.js"></script>
     <script src="game2048.js"></script>
+    <script src="stacker.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
