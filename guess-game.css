@@ -1,0 +1,346 @@
+.title-grid {
+  display: inline-grid;
+  grid-auto-flow: column;
+  grid-gap: 8px;
+  margin-bottom: 10px;
+}
+
+.title-row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 8px;
+  justify-content: center;
+}
+
+.title-tile {
+  width: 54px;
+  height: 54px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.45);
+}
+
+.title-dark {
+  background: #1b2133;
+}
+
+.title-green {
+  background: var(--accent);
+}
+
+.title-orange {
+  background: #f39c12;
+  color: #fff;
+}
+
+h2 {
+  margin-top: 12px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.panel {
+  background: var(--board-bg);
+  border-radius: 16px;
+  padding: 14px 14px 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.panel-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.panel label {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.9;
+}
+
+#guessView select,
+#guessView input[type="password"],
+#guessView input[type="text"] {
+  border-radius: 999px;
+  border: 1px solid #39415a;
+  background: #070b16;
+  color: var(--text);
+  padding: 6px 10px;
+  font-size: 13px;
+  outline: none;
+  min-width: 70px;
+}
+
+#guessView input::placeholder {
+  opacity: 0.5;
+}
+
+.board {
+  margin: 18px auto 12px;
+  background: var(--board-bg);
+  border-radius: 20px;
+  padding: 18px 14px 14px;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+}
+
+.row {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+.tile {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  background: var(--tile-empty);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 2px solid #1e2334;
+  transition: background 0.18s ease, transform 0.12s ease,
+    border-color 0.18s ease;
+}
+
+.tile.filled {
+  border-color: #444b63;
+}
+
+.tile.correct {
+  background: var(--tile-correct);
+  border-color: #27ae60;
+}
+
+.tile.present {
+  background: var(--tile-present);
+  border-color: #d9b20e;
+}
+
+.tile.miss {
+  background: var(--tile-miss);
+  border-color: #10121d;
+  opacity: 0.85;
+}
+
+.guess-row {
+  position: sticky;
+  bottom: 18px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  align-items: center;
+  margin: 16px auto 0;
+  flex-wrap: wrap;
+  padding: 12px 18px;
+  max-width: 520px;
+  width: calc(100% - 32px);
+  border-radius: 20px;
+  background: rgba(7, 11, 22, 0.92);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(14px);
+  z-index: 5;
+}
+
+.guess-row::before {
+  content: "Guess input";
+  flex-basis: 100%;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(247, 247, 247, 0.65);
+  margin-bottom: 4px;
+}
+
+.guess-row input[type="text"] {
+  min-width: 140px;
+  flex: 1 1 200px;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 0.18em;
+  padding: 10px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.guess-row input[type="text"]:focus {
+  border-color: var(--accent);
+  background: rgba(5, 8, 22, 0.85);
+}
+
+.guess-row button {
+  flex: 0 0 auto;
+  min-width: 120px;
+}
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -10vh;
+  width: 10px;
+  height: 16px;
+  border-radius: 2px;
+  opacity: 0;
+  animation: confettiFall var(--duration, 3.2s) ease-out forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(var(--drift, 0), 120vh, 0)
+      rotate(var(--rotate, 480deg));
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .title-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+  .title-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .title-tile {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+  .panel {
+    width: 100%;
+    padding: 12px;
+  }
+  .panel-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .panel label {
+    width: 100%;
+    justify-content: space-between;
+  }
+  #guessView select,
+  #guessView input[type="password"],
+  #guessView input[type="text"] {
+    width: 100%;
+    text-align: center;
+  }
+  .board {
+    max-width: 100%;
+    padding: 14px 10px 10px;
+  }
+  .row {
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .tile {
+    font-size: 22px;
+  }
+  .guess-row {
+    position: fixed;
+    bottom: 12px;
+    width: calc(100% - 28px);
+    margin: 0 auto;
+    gap: 8px;
+    padding: 10px 14px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .guess-row::before {
+    text-align: left;
+    letter-spacing: 0.22em;
+    margin-bottom: 6px;
+  }
+  .guess-row input[type="text"] {
+    min-width: unset;
+    font-size: 17px;
+    letter-spacing: 0.14em;
+  }
+  .guess-row button {
+    width: 100%;
+  }
+  .message {
+    margin-bottom: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-grid {
+    gap: 8px;
+  }
+  .title-row {
+    gap: 4px;
+  }
+  .title-tile {
+    width: 42px;
+    height: 42px;
+    font-size: 20px;
+  }
+  .tile {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 13px;
+    margin: 10px 12px;
+  }
+  .panel label {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  #guessView select,
+  #guessView input[type="password"],
+  #guessView input[type="text"] {
+    text-align: left;
+  }
+  .guess-row::before {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+  .guess-row input[type="text"] {
+    font-size: 16px;
+    letter-spacing: 0.12em;
+  }
+}

@@ -8,8 +8,10 @@
     />
     <meta name="theme-color" content="#050816" />
     <meta name="color-scheme" content="dark light" />
-    <title>Guess Word</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Arcade Games</title>
+    <link rel="stylesheet" href="styles-base.css" />
+    <link rel="stylesheet" href="guess-game.css" />
+    <link rel="stylesheet" href="game2048.css" />
   </head>
   <body>
     <div id="menuView" class="view menu">
@@ -172,9 +174,9 @@
 
         <div class="arcade-2048__help">
           <p>
-            Swipe or use arrow keys (WASD also works). Tiles spawn as 2s and
-            4s (10%). Merge identical numbers once per move. Earn points equal
-            to the value you create.
+            Swipe or use arrow keys (WASD also works). Tiles spawn as 2s and 4s
+            (10%). Merge identical numbers once per move. Earn points equal to
+            the value you create.
           </p>
           <p>
             Tips: keep the highest value in a corner, use Undo if you make a
@@ -184,6 +186,8 @@
       </div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="guess-game.js"></script>
+    <script src="game2048.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
