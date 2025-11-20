@@ -51,6 +51,7 @@
   let keepPlayingBtn;
   let restartBtn;
   let messageEl;
+  let arrowButtons;
 
   function cacheDom() {
     gameView = document.getElementById("game2048View");
@@ -67,6 +68,7 @@
     keepPlayingBtn = document.getElementById("game2048KeepPlaying");
     restartBtn = document.getElementById("game2048Restart");
     messageEl = document.getElementById("game2048Message");
+    arrowButtons = document.querySelectorAll("[data-game2048-move]");
   }
 
   function setMessage(text, type = "") {
@@ -561,6 +563,17 @@
     if (themeSelect) themeSelect.addEventListener("change", handleThemeChange);
     if (keepPlayingBtn) keepPlayingBtn.addEventListener("click", keepPlaying);
     if (restartBtn) restartBtn.addEventListener("click", restartFromOverlay);
+    if (arrowButtons && arrowButtons.length) {
+      arrowButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const direction = btn.dataset.game2048Move;
+          if (direction) {
+            handleMove(direction);
+            btn.blur();
+          }
+        });
+      });
+    }
 
     if (gameView) {
       gameView.addEventListener("pointerdown", handlePointerDown);

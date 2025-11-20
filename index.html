@@ -34,7 +34,6 @@
       </div>
     </div>
 
-
     <div id="stackerView" class="game view stacker hidden">
       <button class="back-btn" data-back-to-menu>&larr; Menu</button>
       <div class="stacker-shell">
@@ -181,23 +180,25 @@
         </div>
 
         <div class="arcade-2048__controls">
-          <label>
-            Board size
-            <select id="game2048Size">
-              <option value="4">4 × 4</option>
-              <option value="5">5 × 5</option>
-              <option value="6">6 × 6</option>
-            </select>
-          </label>
+          <div class="controls_dropdown">
+            <label>
+              Board size
+              <select id="game2048Size">
+                <option value="4">4 × 4</option>
+                <option value="5">5 × 5</option>
+                <option value="6">6 × 6</option>
+              </select>
+            </label>
 
-          <label>
-            Theme
-            <select id="game2048Theme">
-              <option value="neon">Neon</option>
-              <option value="dark">Dark</option>
-              <option value="light">Light</option>
-            </select>
-          </label>
+            <label>
+              Theme
+              <select id="game2048Theme">
+                <option value="neon">Neon</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+              </select>
+            </label>
+          </div>
 
           <div class="arcade-2048__buttons">
             <button id="game2048New">New Game</button>
@@ -226,6 +227,17 @@
 
         <div id="game2048Message" class="message message-2048">
           Start a new game or continue where you left off.
+        </div>
+
+        <div class="arcade-2048__arrows">
+          <button data-game2048-move="up" aria-label="Move up">▲</button>
+          <div class="arcade-2048__arrows-row">
+            <button data-game2048-move="left" aria-label="Move left">◀</button>
+            <button data-game2048-move="down" aria-label="Move down">▼</button>
+            <button data-game2048-move="right" aria-label="Move right">
+              ▶
+            </button>
+          </div>
         </div>
 
         <div class="arcade-2048__help">
